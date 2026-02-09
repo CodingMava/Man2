@@ -3,7 +3,7 @@ from django.contrib.auth.decorators import login_required
 from django.contrib.auth import authenticate, login, logout
 from .forms import RegistrationForm
 from .utils import check_and_notify_budget
-from .models import Transaction
+from apps.tracker.models import Transaction
 from django.db.models import Sum
 
 def index(request):
@@ -24,3 +24,4 @@ def register(request):
         login(request, user)
         return redirect("index")
     return render(request, "register.html", {"form": form})
+
